@@ -1,26 +1,35 @@
 #include <stdio.h>
-#include <stdlib.h>
-int expr(a,b,c,d){
-	int x1 = ((3*a)/(5+(1/6)));
-	int x2 = (3*a)+(5*b)/(2+c);
-	int x3 = (2/7)*((4**(3+c))-(5*d));
-	int x4 = ((2+(8*b))/a)**(1/2);
-	int x5 = ((b**2)-(4*d))**(1/3);
+#include <math.h>
+
+void expr(double a, double b, double c, double d) {
+	double x1, x2, x3, x4, x5;
+	x1 = (3.0 * a) / 5.0 + 1.0 / b;
+	x2 = (3.0 * a + 5.0 * b) / (2.0 + c);
+    x3 = (2.0 / 7.0) * (pow(4.0, 3.0 + c) - 5.0 * d);
+    x4 = sqrt((2.0 + 8.0 * b) / a);
+    x5 = cbrt(b * b - 4.0 * d);
+
+    printf("A = %.1f\n", x1);
+    printf("B = %.1f\n", x2);
+    printf("C = %.1f\n", x3);
+	printf("D = %.1f\n", x4);
+    printf("E = %.1f\n", x5);
 }
-int main() {
-	int a,b,c,d,wht,x1,x2,x3,x4,x5;
-//pick 4.1 or 4.2 or 4.3 kub jarn
-	scanf("%d",&wht);
-	if(wht==4.1){
-		expr(1,1,5,1);
+
+int main(void) {
+    int choose;
+    //choose 4.1/4.2/4.3 kub jarn
+    scanf("%d", &choose);
+    
+    if (choose == 1){
+    	expr(1, 1, 5, 1);
+	} 
+    else if (choose == 2){
+    	expr(9, 2, 0, 1);	
 	}
-	if(wht==4.2){
-		expr(9,2,0,1);
+    else if (choose == 3){
+    	expr(0, 3, 3, 3);
 	}
-	if(wht==4.3){
-		expr(0,3,3,3);
-	}
-	
-	
-	return 0;
+    return 0;
 }
+
